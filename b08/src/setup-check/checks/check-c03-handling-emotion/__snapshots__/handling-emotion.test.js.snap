@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It handle emotion 1`] = `"<hr><div class=\\"css-1ewwfb6-handling-emotion--myStyle\\">This is styled by @emotion, hover to change color.</div><button class=\\"css-m6ewyy-handling-emotion--Button ezrfpgc0\\">this is a styled.button</button><hr>"`;
