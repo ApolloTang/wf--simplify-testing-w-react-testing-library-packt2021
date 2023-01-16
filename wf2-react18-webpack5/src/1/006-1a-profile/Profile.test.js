@@ -23,11 +23,14 @@ it('hides details when button clicked', async() => {
   const container  = rendered.container
   // console.log(prettyDOM(container))
 
-  expect(container.querySelector('.card-text.details')).toHaveTextContent(
-    'This is my 5th year and I love helping others'
-  );
+  const expectedDetailedElement = container.querySelector('.card-text.details')
+  // console.log(prettyDOM(expectedDetailedElement))
+  expect(expectedDetailedElement).toHaveTextContent('This is my 5th year and I love helping others')
+  expect(expectedDetailedElement).toBeInTheDocument()
 
-  const showDetailsBtn = container.querySelector('.btn.btn-primary');
-  fireEvent(showDetailsBtn, new MouseEvent('click', { bubbles: true }));
+  const hideDetailsBtn = container.querySelector('.btn.btn-primary');
+  // console.log(prettyDOM(hideDetailsBtn))
+
+  fireEvent(hideDetailsBtn, new MouseEvent('click', { bubbles: true }));
   expect(container.querySelector('.card-text.details')).not.toBeInTheDocument();
 });
