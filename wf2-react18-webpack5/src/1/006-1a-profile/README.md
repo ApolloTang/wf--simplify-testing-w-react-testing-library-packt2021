@@ -51,6 +51,8 @@ Instead of writing this way:
     render
   } from '@testing-library/react';
 
+  // ... 
+
   let rendered  ///<---- this is awkward
 
   await act(
@@ -65,6 +67,7 @@ Instead of writing this way:
     queryByText,
     getByRole,
   }  = rendered
+  
   console.log(prettyDOM(container))
 ```
 
@@ -80,7 +83,6 @@ You can write it like this using `screen`:
 
 ```js
 import {
-  fireEvent,
   render,
   screen   // <---- importing screen
 } from '@testing-library/react';
@@ -101,12 +103,16 @@ import {
     getByRole,
   }  = screen
   
-  screen.debug()
+  screen.debug()  // <--- this replace console.log(prettyDOM(container))
 ```
 
 Note that the previosly awkward `let rendered` is eliminated.
 
+See:
 
+[react-testing-library - Screen vs Render queries](https://stackoverflow.com/questions/61482418/react-testing-library-screen-vs-render-queries)
+
+[common-mistakes-with-react-testing-library#not-using-screen](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library#not-using-screen)
 
 
 
