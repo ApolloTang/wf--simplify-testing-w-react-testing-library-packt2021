@@ -31,7 +31,7 @@ expect(getByText('foo')).toBeTruthy()
 we can write:
 
 ```
-expect(getByText('This is my 5th year and I love helping others')).toBeInTheDocument()
+expect(getByText('foo')).toBeInTheDocument()
 ```
 
 Which is more readable.
