@@ -79,11 +79,10 @@ Note in above, the awkward code:
 You can write it like this using `screen`:
 
 ```js
-import React from 'react';
 import {
   fireEvent,
   render,
-  screen
+  screen   // <---- importing screen
 } from '@testing-library/react';
 
 // ... 
