@@ -9,7 +9,7 @@ import {prettyDOM} from '@testing-library/dom'
 import Profile from './Profile';
 
 it('hides details when button clicked', async() => {
-  let rendered
+  let rendered // <-- this is awkward
 
   await act(
     async () => {
