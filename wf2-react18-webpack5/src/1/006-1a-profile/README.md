@@ -51,7 +51,7 @@ Instead of writing this way:
     render
   } from '@testing-library/react';
 
-  let rendered  ///<---- this is awkward,,
+  let rendered  ///<---- this is awkward
 
   await act(
     async () => {
@@ -67,6 +67,14 @@ Instead of writing this way:
   }  = rendered
   console.log(prettyDOM(container))
 ```
+
+Note in above, the awkward code:
+
+```js
+ let rendered  ///<---- this is awkward
+```
+
+
 
 You can write it like this using `screen`:
 
@@ -97,7 +105,7 @@ import {
   screen.debug()
 ```
 
-Note that the awkward `let rendered` is no longer needed.
+Note that the previosly awkward `let rendered` is eliminated.
 
 
 
