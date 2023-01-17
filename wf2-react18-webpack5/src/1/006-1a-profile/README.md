@@ -5,10 +5,10 @@ This demo trying to illustrate the following:
 The following will be truety when text `foo` is found:
 
 ```
-render(<comomponent/>).getByText('foo')
+getByText('foo')
 ```
 
-Thus: 
+Thus, we can assert: 
 
 ```
 expect(getByText('foo')).toBeTruthy()
@@ -22,7 +22,7 @@ see reference: [Queries](https://testing-library.com/docs/react-testing-library/
 
 This demo trying to illustrate the following: 
 
-With `jest-dom` install, instead of writing: 
+With `jest-dom` installed, instead of writing: 
 
 ```
 expect(getByText('foo')).toBeTruthy()
