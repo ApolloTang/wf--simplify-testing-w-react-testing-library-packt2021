@@ -12,7 +12,8 @@ it('displays the heading', () => {
   )
 })
 
-//
+// P028
+// ----
 // The getByRole method allows you to query the DOM in ways similar
 // to how anyone, including those using screen readers, would search.
 // A screen reader would look for an element with the role heading
@@ -30,4 +31,63 @@ it('displays the heading  (By Role)', () => {
     getByRole('heading',  { name: /welcome to our site!/i} )
   )
 })
+
+
+/*
+ P028--p029
+ ----------
+
+ This is the output of Jest when it can't find the match using getByRole
+ (Remove ".skip" in next tests to see output.)
+
+  ● displays the heading with text "fake" (using getByRole)
+
+    TestingLibraryElementError: Unable to find an accessible element
+    with the role "heading" and name `/fake!/i`
+
+    Here are the accessible roles:
+
+      banner:
+      ....
+      ....
+      heading:
+      ....
+      ....
+       navigation:
+      ....
+      ....
+
+ Note above that when using getByRole, the message logged out all the selectable.
+ the logged elements help by providing a visual representation
+ of the DOM to understand better why the element you searched for was not found.
+
+ Compare this to when using getByText:
+
+ This is the output of jest when *NOT* using getByRole:
+
+  ● displays the text "fake"  (not using getByRole)
+
+      TestingLibraryElementError: Unable to find an element with
+      the text: /fake!/i. This could be because the text is broken
+      up by multiple elements. In this case, you can provide a function
+      for your text matcher to make your matcher more flexible.
+
+*/
+it.skip('displays the heading with text "fake" (using getByRole)', () => {
+  render(<Jumbotron />)
+
+  const {getByRole} = screen
+  expect(
+    getByRole('heading',  { name: /fake!/i} )
+  )
+})
+it.skip('displays the text "fake"  (not using getByRole)', () => {
+  render(<Jumbotron />)
+
+  const {getByText} = screen
+  expect(
+    getByText('/fake!/i')
+  )
+})
+
 
