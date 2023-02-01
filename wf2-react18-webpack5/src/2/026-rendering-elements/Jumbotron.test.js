@@ -53,7 +53,7 @@ it('displays the heading  (By Role)', () => {
       heading:
       ....
       ....
-       navigation:
+      navigation:
       ....
       ....
 
@@ -91,3 +91,53 @@ it.skip('displays the text "fake"  (not using getByRole)', () => {
 })
 
 
+/*
+ p029 Jest-dom
+ -------------
+
+ We can use the toBeInTheDocument method from jest-dom to make this test
+ more readable.
+*/
+it('displays the heading  (By Role, with jest-dom for readability)', () => {
+  render(<Jumbotron />)
+
+  const {getByRole} = screen
+  expect(
+    getByRole('heading',  { name: /welcome to our site!/i} )
+  ).toBeInTheDocument()    //  <-- toBeInTheDocument is a method adde by
+                           // Jest-dom make this test even more descriptive
+})
+
+/*
+ p030 Jest-dom (no match)
+ ------------------------
+
+ This is the output of Jest when it can't find the match using getByRole
+ (Remove ".skip" in next tests to see output.)
+
+  ● displays the heading with text "fake" (using getByRole)
+
+    TestingLibraryElementError: Unable to find an accessible element
+    with the role "heading" and name `/fake!/i`
+
+    Here are the accessible roles:
+
+      banner:
+      ....
+      ....
+      heading:
+      ....
+      ....
+      navigation:
+      ....
+      ....
+*/
+it.skip('displays the heading -- NO match  (By Role, with jest-dom for readability)', () => {
+  render(<Jumbotron />)
+
+  const {getByRole} = screen
+  expect(
+    getByRole('heading',  { name: /fake/i} )
+  ).toBeInTheDocument()    //  <-- toBeInTheDocument is a method adde by
+                           // Jest-dom make this test even more descriptive
+})
